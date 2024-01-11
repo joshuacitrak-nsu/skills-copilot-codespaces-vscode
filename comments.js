@@ -1,5 +1,6 @@
+//create web server with express
 const express = require('express');
-//create web server with expressconst app = express();
+const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
