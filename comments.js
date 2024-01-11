@@ -1,12 +1,12 @@
-//create web server with express
+// Create web server
 const express = require('express');
-const app = express();
-const port = 3000;
+const Router = express.Router();
+const commentController = require('../controllers/commentController');
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+Router.get('/', commentController.getAllComments);
+Router.get('/:id', commentController.getCommentById);
+Router.post('/', commentController.createComment);
+Router.put('/:id', commentController.updateComment);
+Router.delete('/:id', commentController.deleteComment);
 
-app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
-});
+
